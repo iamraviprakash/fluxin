@@ -50,3 +50,29 @@ var Dispatcher = function () {
     },
   };
 };
+
+module.exports = {
+  create: function () {
+    var dispatcher = new Dispatcher();
+
+    return {
+      createAction: function (type) {
+        // actions must have a type
+        if (!type) {
+          throw new Error("Please, provide action's type.");
+        } else {
+          return function (payload) {
+            // pass action to dispatcher
+            return dispatcher.dispatch({
+              type: type,
+              payload: payload,
+            });
+          };
+        }
+      },
+      createSubscriber: function (store) {
+        return dispatcher.register(store);
+      },
+    };
+  },
+};
