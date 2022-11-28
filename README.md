@@ -1,3 +1,3 @@
 # Flux implementation
 
-This is simple flux implementation with of tutorial on educative.io
+This is simple flux implementation with the help of a tutorial on educative.io
